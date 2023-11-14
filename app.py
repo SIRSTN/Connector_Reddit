@@ -58,7 +58,8 @@ try:
                     # Create the entry for each relevant comment
                     entry = {
                         'user': comment.author.name if comment.author else '[deleted]',
-                        'text': post.title + ' ' + comment.body,
+                        'title': post.title,
+                        'text': comment.body,
                         'date': comment_time.isoformat()  # using the comment time
                     }
                     entries_to_store.append(entry)
