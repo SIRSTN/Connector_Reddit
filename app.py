@@ -39,7 +39,7 @@ try:
             if title_contains_keyword:
                 post.comment_sort = 'best'
                 post.comments.replace_more(limit=0)
-                top_comments = list(post.comments[:5])
+                top_comments = list(post.comments[:10])
 
                 for comment in top_comments:
                     comment_time = datetime.fromtimestamp(comment.created_utc, tz=timezone.utc)
