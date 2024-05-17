@@ -17,11 +17,11 @@ user_agent = config.get('reddit', 'user_agent')
 keywords_bitcoin = ["Bitcoin", "BTC"]
 keywords_ethereum = ["Ethereum", "ETH"]
 
-# Define the timeframe of the last 12 hours
-timeframe_start = datetime.now(timezone.utc) - timedelta(hours=12)
+# Define the timeframe of the last 24 hours
+timeframe_start = datetime.now(timezone.utc) - timedelta(hours=24)
 
 # API URL to send data
-api_url = "http://localhost:5001/store-text"
+api_url = "http://localhost:5003/store-text"
 
 # Initialize PRAW with your credentials
 try:
@@ -68,7 +68,7 @@ try:
             print(f"Status Code for {keyword}: {response.status_code}")
             print(f"Response for {keyword}: {response.json()}")
         else:
-            print(f"No new relevant comments found for {keyword} in the last 12 hours.")
+            print(f"No new relevant comments found for {keyword} in the last 24 hours.")
 
 except prawcore.exceptions.ResponseException as e:
     print(f"An authentication error occurred: {e}")
